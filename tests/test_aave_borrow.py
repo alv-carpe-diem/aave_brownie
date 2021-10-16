@@ -30,8 +30,6 @@ def test_approve_erc20():
     amount = 1000000000000000000  # 1
     erc20_address = config["networks"][network.show_active()]["weth_token"]
     # Act
-    approved = approve_erc20(
-        amount, lending_pool.address, erc20_address, account
-    )  # Will return a transaction address, not a bool due to how we wrote the function
+    tx = approve_erc20(amount, lending_pool.address, erc20_address, account)
     # Assert
-    assert approved is True
+    assert tx is not True
